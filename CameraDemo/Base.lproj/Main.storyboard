@@ -13,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,25 +23,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDe-ci-P5E">
-                                <rect key="frame" x="16" y="20" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="20" width="153.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-z1-MQl">
-                                <rect key="frame" x="131" y="100" width="112" height="30"/>
+                                <rect key="frame" x="119" y="103" width="137" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="Obr-CS-c6c"/>
+                                    <constraint firstAttribute="width" constant="137" id="Obr-CS-c6c"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Take Photo"/>
                                 <connections>
-                                    <segue destination="cLO-yD-Rzp" kind="presentation" id="uYD-z0-fTg"/>
+                                    <action selector="actionTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lVe-6G-fQR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7fh-z1-MQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="6DE-sJ-QPr"/>
+                            <constraint firstItem="7fh-z1-MQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="83" id="6DE-sJ-QPr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JDe-ci-P5E" secondAttribute="leading" id="N5A-NA-OSe"/>
                             <constraint firstItem="JDe-ci-P5E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PiJ-wQ-wFs"/>
                             <constraint firstItem="7fh-z1-MQl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pmg-YH-gKW"/>
@@ -55,7 +56,7 @@
         <!--Take Photo View Controller-->
         <scene sceneID="4Cg-mw-iWB">
             <objects>
-                <viewController id="cLO-yD-Rzp" customClass="TakePhotoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TakePhoto" id="cLO-yD-Rzp" customClass="TakePhotoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H1q-U3-UdL"/>
                         <viewControllerLayoutGuide type="bottom" id="Hxj-Wk-WBs"/>
@@ -64,24 +65,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DY-at-die">
+                                <rect key="frame" x="166" y="28" width="193" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Change Camera"/>
+                                <connections>
+                                    <action selector="actionChangeCamera:" destination="cLO-yD-Rzp" eventType="touchUpInside" id="oQc-kM-72S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-zo-UDX">
+                                <rect key="frame" x="208" y="104" width="151" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Change Size"/>
+                                <connections>
+                                    <action selector="actionChangeSize:" destination="cLO-yD-Rzp" eventType="touchUpInside" id="yiy-u7-yKr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbB-rg-Cn3">
+                                <rect key="frame" x="132" y="606" width="110" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="RWz-pv-aTY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="actionCapture:" destination="cLO-yD-Rzp" eventType="touchUpInside" id="eAX-mQ-WZA"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uux-ys-L9p">
-                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <rect key="frame" x="16" y="23" width="71" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Return"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="Gnh-lQ-Eqr"/>
+                                    <action selector="actionReturn:" destination="cLO-yD-Rzp" eventType="touchUpInside" id="IHr-K2-bGx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="uux-ys-L9p" secondAttribute="leading" id="Aag-N1-i04"/>
-                            <constraint firstItem="uux-ys-L9p" firstAttribute="top" secondItem="H1q-U3-UdL" secondAttribute="bottom" id="aKc-no-7NI"/>
+                            <constraint firstItem="aUg-zo-UDX" firstAttribute="top" secondItem="H1q-U3-UdL" secondAttribute="bottom" constant="84" id="6Tk-KO-zKd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aUg-zo-UDX" secondAttribute="trailing" id="Bn9-i9-XTs"/>
+                            <constraint firstItem="0DY-at-die" firstAttribute="top" secondItem="H1q-U3-UdL" secondAttribute="bottom" constant="8" id="OaQ-VX-X58"/>
+                            <constraint firstItem="Hxj-Wk-WBs" firstAttribute="top" secondItem="GbB-rg-Cn3" secondAttribute="bottom" constant="20" id="RqC-BZ-8E0"/>
+                            <constraint firstItem="0DY-at-die" firstAttribute="leading" secondItem="uBd-CD-XeT" secondAttribute="leadingMargin" constant="150" id="UOa-Mi-pdj"/>
+                            <constraint firstItem="GbB-rg-Cn3" firstAttribute="centerX" secondItem="uBd-CD-XeT" secondAttribute="centerX" id="Xto-VQ-wEX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0DY-at-die" secondAttribute="trailing" id="dbg-1p-4PQ"/>
+                            <constraint firstItem="Hxj-Wk-WBs" firstAttribute="top" secondItem="uux-ys-L9p" secondAttribute="bottom" constant="603" id="fsq-Jy-0Ii"/>
+                            <constraint firstItem="uux-ys-L9p" firstAttribute="top" secondItem="H1q-U3-UdL" secondAttribute="bottom" constant="3" id="jRD-4d-bhY"/>
+                            <constraint firstItem="aUg-zo-UDX" firstAttribute="leading" secondItem="uBd-CD-XeT" secondAttribute="leadingMargin" constant="192" id="uWy-ws-5YE"/>
+                            <constraint firstItem="Hxj-Wk-WBs" firstAttribute="top" secondItem="0DY-at-die" secondAttribute="bottom" constant="609" id="w7D-gj-cSw"/>
+                            <constraint firstItem="Hxj-Wk-WBs" firstAttribute="top" secondItem="aUg-zo-UDX" secondAttribute="bottom" constant="533" id="yAw-8Y-frz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="uux-ys-L9p" secondAttribute="leading" id="zbA-rj-Gju"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyc-mh-a0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="123"/>
+            <point key="canvasLocation" x="864.79999999999995" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>

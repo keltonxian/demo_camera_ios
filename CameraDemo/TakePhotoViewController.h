@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TakePhotoViewController : UIViewController
+@interface TakePhotoViewController : UIViewController {
+    UIImagePickerController *_picker;
+    UIImageView *_imageView;
+    int _sizeIndex;
+    float _previewAspectRatio;
+}
 
 
 @end
