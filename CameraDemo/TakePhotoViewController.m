@@ -140,6 +140,21 @@
         breageView.layer.borderColor = [UIColor redColor].CGColor;
         breageView.layer.borderWidth = 2;
         [_imageView addSubview:breageView];
+
+        //左眼
+        if (faceFeature.hasLeftEyePosition) {
+            
+        }
+        
+        //右眼
+        if (faceFeature.hasRightEyePosition) {
+            
+        }
+        
+        //嘴巴
+        if (faceFeature.hasMouthPosition) {
+            
+        }
     }
 }
 
