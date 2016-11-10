@@ -13,6 +13,7 @@
     UIImageView *_imageView;
     int _sizeIndex;
     float _previewAspectRatio;
+    UIImagePickerControllerCameraDevice _cameraOrientation;
 }
 
 

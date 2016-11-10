@@ -29,6 +29,7 @@
     if (ori == UIImagePickerControllerCameraDeviceFront) {
         nori = UIImagePickerControllerCameraDeviceRear;
     }
+    _cameraOrientation = nori;
     [_picker setCameraDevice:nori];
 }
 
@@ -162,8 +163,10 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = (id)self;
     _picker = picker;
+    _cameraOrientation = cameraOrientation;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     picker.showsCameraControls = NO;
+    [picker setCameraDevice:cameraOrientation];
     //    [self presentViewController:picker animated:YES completion:^(void) {}];
     [self.view addSubview:picker.view];
     [self.view sendSubviewToBack:picker.view];
@@ -183,6 +186,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (UIImagePickerControllerCameraDeviceFront == _cameraOrientation) {
+        image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation: UIImageOrientationLeftMirrored];
+    }
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
     while (width > 1000) {
